@@ -14,7 +14,7 @@ jobs:
           node-version: 12
       - run: yarn ci
       - run: yarn test
-      - run: yarn rollup
+      - run: yarn build:prod
 
   publish-gpr:
     needs: build
@@ -29,7 +29,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: yarn ci
-      - run: yarn rollup
+      - run: yarn build:prod
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.RELEASE_TOKEN}}
