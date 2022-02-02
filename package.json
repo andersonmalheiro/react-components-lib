@@ -12,7 +12,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "test": "exit 0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
@@ -33,6 +34,6 @@
     "styled-components": "^5.3.3"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/andersonmalheiro"
+    "@andersonmalheiro:registry": "https://npm.pkg.github.com"
   }
 }
