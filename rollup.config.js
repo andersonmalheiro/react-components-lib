@@ -1,28 +1,46 @@
-import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
+import resolve from "@rollup/plugin-node-resolve";
 import typescript from "@rollup/plugin-typescript";
+import autoprefixer from "autoprefixer";
+import babel from "rollup-plugin-babel";
 import dts from "rollup-plugin-dts";
+import postcss from "rollup-plugin-postcss";
+import scss from "rollup-plugin-scss";
 
 const packageJson = require("./package.json");
 
 export default [
   {
     input: "src/index.ts",
+    preserveModules: true,
     output: [
       {
-        file: packageJson.main,
+        dir: "dist/cjs",
         format: "cjs",
         sourcemap: true,
+        exports: "auto",
       },
       {
-        file: packageJson.module,
+        dir: "dist/esm",
         format: "esm",
         sourcemap: true,
+        exports: "auto",
       },
     ],
     plugins: [
-      resolve(),
+      babel({ exclude: "node_modules/**" }),
       commonjs(),
+      postcss({
+        plugins: [autoprefixer()],
+        sourceMap: true,
+        extract: true,
+        minimize: true,
+        modules: true,
+      }),
+      resolve(),
+      scss({
+        output: false,
+      }),
       typescript({ tsconfig: "./tsconfig.json" }),
     ],
   },
