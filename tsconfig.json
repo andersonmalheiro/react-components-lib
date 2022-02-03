@@ -7,11 +7,13 @@
     "skipLibCheck": true,
     "jsx": "react",
     "module": "ESNext",
+    "declaration": true,
+    "declarationDir": "dist/esm/types",
     "sourceMap": true,
+    "outDir": "dist/esm/ts",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "rootDir": ".",
-    "baseUrl": "src/"
+    "emitDeclarationOnly": true,
   },
   "include": ["src/**/*.ts", "src/jest.config.js"],
   "exclude": ["node_modules"]
