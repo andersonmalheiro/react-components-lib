@@ -8,7 +8,7 @@ describe("Button", () => {
     const testId = "testId";
 
     const { getByTestId } = screen;
-    render(<Button data-testid={testId}>Button</Button>);
+    render(<Button data-testid={testId} text="Button" />);
 
     expect(getByTestId(testId)).toBeInTheDocument();
   });
@@ -16,14 +16,14 @@ describe("Button", () => {
   it("should render outline variant", () => {
     const testId = "testId";
 
-    const { getByTestId } = screen;
+    const { getByTestId, debug } = screen;
     render(
-      <Button data-testid={testId} variant="outline">
-        Button
-      </Button>
+      <Button data-testid={testId} variant="outline" text="Button" />
     );
 
+    debug();
+
     expect(getByTestId(testId)).toBeInTheDocument();
-    expect(getByTestId(testId)).toHaveStyle("border: 1px solid");
+    expect(getByTestId(testId)).toHaveClass("variant__outline");
   });
 });
