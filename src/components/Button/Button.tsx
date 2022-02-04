@@ -16,7 +16,7 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       {...rest}
-      className={[styles.btn_base, styles[`btn_base__variant_${variant}`]].join(
+      className={[styles.btn_base, styles[`variant_${variant}`]].join(
         " "
       )}
     >

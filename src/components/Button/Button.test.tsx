@@ -24,6 +24,6 @@ describe("Button", () => {
     debug();
 
     expect(getByTestId(testId)).toBeInTheDocument();
-    expect(getByTestId(testId)).toHaveClass("variant__outline");
+    expect(getByTestId(testId)).toHaveClass("btn_base variant_outline");
   });
 });
