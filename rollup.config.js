@@ -1,7 +1,8 @@
-import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
+import resolve from "@rollup/plugin-node-resolve";
+import babel from "rollup-plugin-babel";
+import postcss from "rollup-plugin-postcss";
+import typescript from "rollup-plugin-typescript2";
 
 const packageJson = require("./package.json");
 
@@ -21,14 +22,13 @@ export default [
       },
     ],
     plugins: [
+      babel({ exclude: "node_modules/**" }),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" }),
+      typescript({ useTsconfigDeclarationDir: true }),
+      postcss({
+        extensions: [".css", ".scss"],
+      }),
     ],
-  },
-  {
-    input: "dist/esm/types/index.d.ts",
-    output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
   },
 ];

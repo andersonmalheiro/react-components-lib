@@ -1,33 +1,29 @@
-import styled, { css } from "styled-components";
-
-const baseStyle = css`
+.btn_base {
   align-items: center;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   display: flex;
   justify-content: center;
-  padding: 5px 10px;
+  padding: 5px 15px;
   transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  font-size: 16px;
 
   &:hover {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease-in-out;
   }
-`;
+}
 
-export const BaseButton = styled.button`
-  ${baseStyle}
-`;
 
-export const VariantDefault = styled(BaseButton)`
+.btn_base__variant_default {
   background: green;
   color: white;
-`;
+}
 
-export const VariantOutline = styled(BaseButton)`
+.btn_base__variant_outline {
   background: white;
   color: green;
   border: 1px solid;
-`;
-
+}
