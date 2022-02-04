@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Button.module.css";
+import styles from "./Button.module.scss";
 
 type ButtonVariant = "default" | "outline";
 
@@ -16,7 +16,9 @@ const Button = (props: ButtonProps) => {
   return (
     <button
       {...rest}
-      className={[styles.base_style, styles[`variant__${variant}`]].join(" ")}
+      className={[styles.btn_base, styles[`btn_base__variant_${variant}`]].join(
+        " "
+      )}
     >
       {text}
     </button>
